@@ -1,0 +1,9 @@
+# GitHub deposunun üstünde "Sponsor" düğmesi gösterir.
+# Kullandığın hizmetin başındaki # işaretini kaldırıp kendi kullanıcı adını/bağlantını yaz.
+# Ayrıntı: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# github: bollattime
+# buy_me_a_coffee: KULLANICI_ADIN
+# ko_fi: KULLANICI_ADIN
+# patreon: KULLANICI_ADIN
+# custom: ["https://ORNEK-BAGIS-BAGLANTIN"]
