@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: build-data
@@ -44,4 +45,13 @@ jobs:
           else
             git commit -m "Veri derlendi: $(python3 -c 'import json;print(json.load(open("docs/version.json"))["dataVersion"])')"
             git push
+            echo "YAYINLA=1" >> "$GITHUB_ENV"
           fi
+
+      # Botun gönderdiği değişiklik GitHub Pages'i kendiliğinden yenilemez; burada yenilenmesini istiyoruz.
+      - name: GitHub Pages'i yenile
+        if: env.YAYINLA == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages yenileme isteği gönderilemedi; bir sonraki gönderimde güncellenir."
